@@ -1,0 +1,12 @@
+/* Product image */
+.product-image {
+  height: 450px;
+  width: 300px;
+}
+.breadcrumb-item a {
+  text-decoration: none;
+  color: #000;
+}
+.breadcrumb-item a:hover {
+  text-decoration: underline;
+}

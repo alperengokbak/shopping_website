@@ -1,0 +1,70 @@
+<!-- templates/search_results.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Results</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" />
+    <style>
+      .main-title {
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 42px;
+        padding: 4px;
+        margin-right: 16px;
+      }
+      .main-title:hover {
+        background-color: #d3d3d3;
+        border-radius: 16px;
+        padding: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" style="padding: 16px">
+      <div style="display: flex; flex-direction: row; align-items: center">
+        <a class="main-title" href="{% url 'home' %}">
+          <span>
+            <i class="bi bi-house-fill"></i>
+          </span>
+        </a>
+        <h1>Search Results for "{{ query }}"</h1>
+      </div>
+      <!-- Product List -->
+      <div class="row">
+        {% for product in products %}
+        <div class="col-md-3">
+          <div class="card" style="width: 18rem">
+            <a class="nav-link" href="{% url 'product_detail' product.product_id %}">
+              <img src="{{ product.image.url }}" class="img-fluid" />
+            </a>
+            <div class="card-body">
+              <a
+                class="nav-link white"
+                href="{% url 'product_detail' product.product_id %}"
+                style="color: black; font-weight: bold; font-size: 20px; padding: 0px; margin-bottom: 8px"
+                >{{ product.brand }} {{ product.category.title }}</a
+              >
+              <p>{{ product.description | slice:"45" }}...</p>
+              <p class="card-text">{{ product.price }} TL</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
