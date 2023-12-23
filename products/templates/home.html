@@ -16,17 +16,21 @@
   <body>
     <div class="container" style="padding: 16px">
       <!-- Search Bar -->
-      <div style="display: flex; flex-direction: row">
-        <h1 style="margin-right: 16px">Shopping</h1>
+      <div style="display: flex; flex-direction: row; margin-bottom: 20px; align-items: flex-start">
+        <a
+          style="font-size: 32px; margin-right: 16px; font-weight: bold; text-decoration: none; color: #000"
+          href="{% url 'home' %}"
+          >Shopping</a
+        >
         <div style="border-right: 1px solid; margin-right: 16px; height: 48px"></div>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3" style="margin-top: 4px">
           <form id="searchForm" action="{% url 'search_input' %}" method="GET">
             <input
               type="text"
               id="search"
               name="search"
               placeholder="Search"
-              style="width: 300px"
+              style="width: 400px; height: 42px; padding: 8px"
               class="form-control"
             />
           </form>
@@ -37,10 +41,11 @@
       </div>
 
       <!-- Product List -->
-      <div class="row">
+      <div class="row" style="background-color: #fff5ee; padding: 12px">
+        <h2>Best-selling products</h2>
         {% for product in products %}
         <div class="col-md-3">
-          <div class="card" style="width: 18rem">
+          <div class="card" style="width: 16rem; height: 580px; margin-bottom: 16px">
             <a class="nav-link" href="{% url 'product_detail' product.product_id %}">
               <img src="{{ product.image.url }}" class="img-fluid" />
             </a>

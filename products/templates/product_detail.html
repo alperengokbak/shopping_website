@@ -14,10 +14,35 @@
     />
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" />
   </head>
   <body>
     <!-- Product Detail -->
     <div class="container" style="padding: 16px">
+      <!-- Search Bar -->
+      <div style="display: flex; flex-direction: row; margin-bottom: 20px; align-items: flex-start">
+        <a
+          style="font-size: 32px; margin-right: 16px; font-weight: bold; text-decoration: none; color: #000"
+          href="{% url 'home' %}"
+          >Shopping</a
+        >
+        <div style="border-right: 1px solid; margin-right: 16px; height: 48px"></div>
+        <div class="input-group mb-3" style="margin-top: 4px">
+          <form id="searchForm" action="{% url 'search_input' %}" method="GET">
+            <input
+              type="text"
+              id="search"
+              name="search"
+              placeholder="Search"
+              style="width: 400px; height: 42px; padding: 8px"
+              class="form-control"
+            />
+          </form>
+          <span class="input-group-text" style="cursor: pointer" onclick="submitForm()">
+            <i class="bi bi-search"></i>
+          </span>
+        </div>
+      </div>
       <!-- Breadcrumbs -->
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -52,8 +77,6 @@
       </nav>
 
       <!-- Product Details -->
-      <h1 style="margin-bottom: 16px">{{ product.brand }} {{ product.category.title }}</h1>
-
       <div class="row">
         <div class="col-md-4">
           <div class="card" style="width: 24rem">
