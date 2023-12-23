@@ -3,7 +3,6 @@
 *.pot
 *.pyc
 __pycache__
-product_images
 
 # Backup files # 
 *.bak 
