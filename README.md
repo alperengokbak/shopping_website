@@ -117,31 +117,47 @@ shopping-website/
 
 ## Data Model
 
-The data model consists of two main entities:
+The data model is designed to represent the structure of the shopping website and consists of two main entities:
 
-### Category
+### Category Entity
 
-- category_id: Primary key for the category.
-- title: Title of the category.
-- parent_category: Reference to the parent category (self-referential relationship).
+- `category_id` (Primary Key): An identifier for the category.
+- `title`: The title of the category.
+- `parent_category` (Foreign Key referencing `category_id`): Establishes a self-referential relationship, allowing a category to have a parent category within the same table.
 
-### Product
+### Product Entity
 
-- product_id: Primary key for the product.
-- description: Description of the product.
-- price: Price of the product.
-- image: Image of the product.
-- brand: Brand of the product.
-- category: Reference to the category the product belongs to.
+- `product_id` (Primary Key): An identifier for the product.
+- `description`: A detailed description of the product.
+- `price`: The price of the product.
+- `image`: An image representing the product.
+- `brand`: The brand of the product.
+- `category` (Foreign Key referencing `category_id` in the `Category` entity): Indicates the category to which the product belongs.
 
-1. **Category Entity:**
+#### 1. Category Entity
 
-   - Attributes: `category_id` (PK), `title`, `parent_category` (FK referencing `category_id` in the same table).
-   - The `parent_category` establishes a self-referential relationship, indicating that a category can have a parent category within the same table.
+- **Attributes:**
 
-2. **Product Entity:**
-   - Attributes: `product_id` (PK), `description`, `price`, `image`, `brand`, `category` (FK referencing `category_id` in the `Category` table).
-   - The `category` attribute establishes a relationship with the `Category` entity, indicating the category to which the product belongs.
+  - `category_id` (Primary Key)
+  - `title`
+  - `parent_category` (Foreign Key referencing `category_id` in the same table)
+
+- **Relationships:**
+  - The `parent_category` establishes a self-referential relationship, indicating that a category can have a parent category within the same table.
+
+#### 2. Product Entity
+
+- **Attributes:**
+
+  - `product_id` (Primary Key)
+  - `description`
+  - `price`
+  - `image`
+  - `brand`
+  - `category` (Foreign Key referencing `category_id` in the `Category` table)
+
+- **Relationships:**
+  - The `category` attribute establishes a relationship with the `Category` entity, indicating the category to which the product belongs.
 
 ## Dependencies
 
