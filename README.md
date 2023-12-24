@@ -58,21 +58,21 @@ This Django project is a simple shopping website that allows users to browse pro
    python manage.py runserver
    ```
 
-6. Navigate to [http://localhost:8000](http://localhost:8000) in your browser.
+6. Navigate to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser.
 
 ## Usage
 
 ### Admin
 
-The admin panel can be accessed at [http://localhost:8000/admin](http://localhost:8000/admin). Use the superuser account created in step 4 of the [Installation](#installation) instructions to log in.
+The admin panel can be accessed at [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin). Use the superuser account created in step 4 of the [Installation](#installation) instructions to log in.
 
 ### Home Page
 
-The home page displays a list of products. Each product is displayed as a card with the product image, brand, description, and price. The products can be filtered by category using the sidebar on the left. The products can also be sorted by price using the dropdown menu on the right.
+The home page displays a list of products. Each product is displayed as a card with the product image, brand, description, and price.
 
 ### Search
 
-The search functionality allows users to search for products based on various criteria. The search bar is located at the top of the page. The search results are displayed as a list of products. Each product is displayed as a card with the product image, brand, description, and price. The products can be filtered by category using the sidebar on the left. The products can also be sorted by price using the dropdown menu on the right.
+The search functionality allows users to search for products based on various criteria. The search bar is located at the top of the page. The search results are displayed as a list of products. Each product is displayed as a card with the product image, brand, description, and price.
 
 ### Product Detail
 
@@ -125,7 +125,7 @@ The data model consists of two main entities:
 - title: Title of the category.
 - parent_category: Reference to the parent category (self-referential relationship).
 
-## Product
+### Product
 
 - product_id: Primary key for the product.
 - description: Description of the product.
@@ -138,7 +138,5 @@ The data model consists of two main entities:
 
 - [Django](https://www.djangoproject.com/)
 - [Bootstrap](https://getbootstrap.com/)
-- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/)
-- [django-debug-toolbar](https://django-debug-toolbar.readthedocs.io/en/latest/)
-- [django-extensions](https://django-extensions.readthedocs.io/en/latest/)
-- [django-filter](https://django-filter.readthedocs.io/en/latest/)
+- [Pillow](https://pypi.org/project/Pillow/)
+- [python-dotenv](https://pypi.org/project/python-dotenv/)
