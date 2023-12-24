@@ -134,6 +134,15 @@ The data model consists of two main entities:
 - brand: Brand of the product.
 - category: Reference to the category the product belongs to.
 
+1. **Category Entity:**
+
+   - Attributes: `category_id` (PK), `title`, `parent_category` (FK referencing `category_id` in the same table).
+   - The `parent_category` establishes a self-referential relationship, indicating that a category can have a parent category within the same table.
+
+2. **Product Entity:**
+   - Attributes: `product_id` (PK), `description`, `price`, `image`, `brand`, `category` (FK referencing `category_id` in the `Category` table).
+   - The `category` attribute establishes a relationship with the `Category` entity, indicating the category to which the product belongs.
+
 ## Dependencies
 
 - [Django](https://www.djangoproject.com/)
