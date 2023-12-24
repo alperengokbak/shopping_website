@@ -5,7 +5,9 @@
 __pycache__
 
 # Backup files # 
-*.bak 
+*.bak
+db.sqlite3
+product_images
 
 # If you are using PyCharm # 
 # User-specific stuff
